@@ -1,4 +1,4 @@
-Yii2 PayPal Api Extension
+Yii2 PayPal Api Extension (Under development)
 =========================================
 Yii2  PayPal Api extension  use to integrate simple PayPal payment in your website.
 
@@ -47,10 +47,15 @@ return [
 <?php
 'components'=> [
     ...
- 'PayPalRestApi'=>[
-            'class'=>'bitcko\paypalrestapi\PayPalRestApi',
-            'redirectUrl'=>'/site/make-payment', // Redirect Url after payment
-            ]
+'PayPalRestApi'=>[
+            'class'=>'vanyok\paypalyii\PayPalRestApi',
+            'returnUrl'=>'/site/welcome', // Redirect Url after payment
+            'cancelUrl'=>'/site/canceled',
+            'currencyCode' => 'USD',
+            'debug' => true,
+            'mode' => 'sandbox',// 'live' or 'sandbox'
+            'store_orders'=>true,
+        ]
             ...
         ]
 
@@ -73,64 +78,30 @@ class SiteController extends Controller
    
     public function actionCheckout(){
         // Setup order information array with all items
-        $params = [
-            'method'=>'paypal',
-            'intent'=>'sale',
-            'order'=>[
-                'description'=>'Payment description',
-                'subtotal'=>44,
-                'shippingCost'=>0,
-                'total'=>44,
-                'currency'=>'USD',
-                'items'=>[
-                    [
-                        'name'=>'Item one',
-                        'price'=>10,
-                        'quantity'=>1,
-                        'currency'=>'USD'
-                    ],
-                    [
-                        'name'=>'Item two',
-                        'price'=>12,
-                        'quantity'=>2,
-                        'currency'=>'USD'
-                    ],
-                    [
-                        'name'=>'Item three',
-                        'price'=>1,
-                        'quantity'=>10,
-                        'currency'=>'USD'
-                    ],
-
-                ]
-
-            ]
-        ];
-        
-        // In this action you will redirect to the PayPpal website to login with you buyer account and complete the payment
-        Yii::$app->PayPalRestApi->checkOut($params);
+        $items = array();
+        $item = new Item;
+               $item->load(['Item' => [
+                   'name' => 'Item name',
+                   'description' => 'Item Description',
+                   'value'=>37
+               ]]);
+                $items[] = $item; 
+               // In this action you will redirect to the PayPpal website to login with you buyer account and complete the payment
+               Yii::$app->PayPalRestApi->checkOut($items);
     }
 
-    public function actionMakePayment(){
+    public function actionWelcome(){
          // Setup order information array 
-        $params = [
-            'order'=>[
-                'description'=>'Payment description',
-                'subtotal'=>44,
-                'shippingCost'=>0,
-                'total'=>44,
-                'currency'=>'USD',
-            ]
-        ];
-      // In case of payment success this will return the payment object that contains all information about the order
-      // In case of failure it will return Null
-      return  Yii::$app->PayPalRestApi->processPayment($params);
+        $order_id = Yii::$app->request->get('token');
+        $order = Yii::$app->PayPalRestApi->getOrder($order_id);
+               if($order->status == Order::ORDER_COMPLETED || $order->status == Order::ORDER_APPROVED){
+                   ...
+        }
 
     }
 }
 
 
 ```
-
 
 
