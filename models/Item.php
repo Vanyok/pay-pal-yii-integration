@@ -22,7 +22,10 @@ class Item extends Model
 
     public function rules()
     {
-        [['name'],'required'];
+        return [
+            [['name'],'required'],
+            [['name','description','sku','value','category','quantity','tax'],'safe']
+        ];
     }
 
     /**

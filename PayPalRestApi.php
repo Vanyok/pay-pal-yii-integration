@@ -92,8 +92,8 @@ class PayPalRestApi
             'intent' => $this->intent,
             'application_context' =>
                 array(
-                    'return_url' => $this->returnUrl,
-                    'cancel_url' => $this->cancelUrl
+                    'return_url' => Url::to([$this->returnUrl],true),
+                    'cancel_url' => Url::to([$this->cancelUrl],true)
                 ),
             'purchase_units' =>
                 array(
