@@ -31,6 +31,7 @@ use yii\db\ActiveRecord;
 class Order extends ActiveRecord
 {
     const ORDER_COMPLETED = 'COMPLETED';
+    const ORDER_APPROVED = 'APPROVED';
 
     public static function tableName()
     {

@@ -37,7 +37,7 @@ class GetOrder
             $order = Order::find()->where(['order_id'=>$response->result->id])->one();
             if($order){
                 $order->status = $response->result->status;
-                $order->payer_name = implode(" ",$response->result->payer->name) ;
+                $order->payer_name = $response->result->payer->name->given_name .' '.$response->result->payer->name->surname;
                 $order->payer_email = $response->result->payer->email_address;
                 $order->save();
             }

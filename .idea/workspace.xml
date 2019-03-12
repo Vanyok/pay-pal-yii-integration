@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5048944-237a-4465-9fbf-92e6b327991e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/Order.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetOrder.php" afterPath="$PROJECT_DIR$/GetOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayPalClient.php" afterPath="$PROJECT_DIR$/PayPalClient.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayPalRestApi.php" afterPath="$PROJECT_DIR$/PayPalRestApi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Order.php" afterPath="$PROJECT_DIR$/models/Order.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,6 +15,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="m190312_190212_create_paypal_order_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/migrations/m190312_190212_create_paypal_order_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Address.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/Address.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -88,6 +96,11 @@
             <path>
               <item name="pay-pal-yii-integration" type="b2602c69:ProjectViewProjectNode" />
               <item name="pay-pal-yii-integration" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="pay-pal-yii-integration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pay-pal-yii-integration" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -135,7 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1552377715768</updated>
       <workItem from="1552377717371" duration="712000" />
-      <workItem from="1552399122410" duration="2917000" />
+      <workItem from="1552399122410" duration="4188000" />
     </task>
     <task id="LOCAL-00001" summary="models">
       <created>1552399176109</created>
@@ -165,11 +178,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552408595391</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="developing fixes">
+      <created>1552416731238</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552416731238</updated>
+    </task>
+    <task id="LOCAL-00006" summary="developing fixes">
+      <created>1552417644461</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552417644461</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3629000" />
+    <option name="totallyTimeSpent" value="4900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
@@ -263,6 +290,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="868">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/m190312_190212_create_paypal_order_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
