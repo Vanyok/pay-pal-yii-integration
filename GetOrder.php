@@ -10,6 +10,8 @@ namespace  vanyok\paypalyii;
 
 
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
+use vanyok\paypalyii\models\Order;
+use Yii;
 
 class GetOrder
 {
@@ -24,23 +26,22 @@ class GetOrder
         // 3. Call PayPal to get the transaction details
         $client = PayPalClient::client();
         $response = $client->execute(new OrdersGetRequest($orderId));
-        /**
-         *Enable the following line to print complete response as JSON.
-         */
-        //print json_encode($response->result);
-        print "Status Code: {$response->statusCode}\n";
-        print "Status: {$response->result->status}\n";
-        print "Order ID: {$response->result->id}\n";
-        print "Intent: {$response->result->intent}\n";
-        print "Links:\n";
-        foreach($response->result->links as $link)
-        {
-            print "\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n";
-        }
-        // 4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
-        print "Gross Amount: {$response->result->purchase_units[0]->amount->currency_code} {$response->result->purchase_units[0]->amount->value}\n";
 
-        // To print the whole response body, uncomment the following line
-        // echo json_encode($response->result, JSON_PRETTY_PRINT);
+        if(Yii::$app->PayPalRestApi->debug){
+            Yii::info("Status Code: {$response->statusCode}\n
+            Status: {$response->result->status}\n
+            Order ID: {$response->result->id}\n 
+            Intent: {$response->result->intent}\n");
+        }
+        if(Yii::$app->PayPalRestApi->store_orders){
+            $order = Order::find()->where(['order_id'=>$response->result->id])->one();
+            if($order){
+                $order->status = $response->result->status;
+                $order->payer_name = implode(" ",$response->result->payer->name) ;
+                $order->payer_email = $response->result->payer->email_address;
+                $order->save();
+            }
+        }
+        return $response->result;
     }
 }

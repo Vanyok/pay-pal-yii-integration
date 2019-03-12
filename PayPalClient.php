@@ -31,8 +31,14 @@ class PayPalClient
      */
     public static function environment()
     {
-        $clientId = getenv("CLIENT_ID") ?: Yii::$app->params["PAYPAL-SANDBOX-CLIENT-ID"];
-        $clientSecret = getenv("CLIENT_SECRET") ?: Yii::$app->params["PAYPAL-SANDBOX-CLIENT-SECRET"];
+        if(Yii::$app->PayPalRestApi->mode == 'live'){
+            $clientId =  Yii::$app->params["PAYPAL-LIVE-CLIENT-ID"];
+            $clientSecret =  Yii::$app->params["PAYPAL-LIVE-CLIENT-SECRET"];
+        }else{
+            $clientId =  Yii::$app->params["PAYPAL-SANDBOX-CLIENT-ID"];
+            $clientSecret =  Yii::$app->params["PAYPAL-SANDBOX-CLIENT-SECRET"];
+        }
+
         return new SandboxEnvironment($clientId, $clientSecret);
     }
 }

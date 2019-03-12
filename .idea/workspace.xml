@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5048944-237a-4465-9fbf-92e6b327991e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/Order.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetOrder.php" afterPath="$PROJECT_DIR$/GetOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayPalClient.php" afterPath="$PROJECT_DIR$/PayPalClient.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayPalRestApi.php" afterPath="$PROJECT_DIR$/PayPalRestApi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Item.php" afterPath="$PROJECT_DIR$/models/Item.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +30,8 @@
       <file leaf-file-name="AuthorizeOrder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AuthorizeOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -45,6 +47,7 @@
       <list>
         <option value="$PROJECT_DIR$/pay-pal-yii-integration/composer.json" />
         <option value="$PROJECT_DIR$/pay-pal-yii-integration/README.md" />
+        <option value="$PROJECT_DIR$/PayPalRestApi.php" />
       </list>
     </option>
   </component>
@@ -132,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1552377715768</updated>
       <workItem from="1552377717371" duration="712000" />
-      <workItem from="1552399122410" duration="886000" />
+      <workItem from="1552399122410" duration="2917000" />
     </task>
     <task id="LOCAL-00001" summary="models">
       <created>1552399176109</created>
@@ -148,11 +151,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552399214702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="developing fixes">
+      <created>1552400566791</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1552400566791</updated>
+    </task>
+    <task id="LOCAL-00004" summary="developing fixes">
+      <created>1552408595391</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552408595391</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1598000" />
+    <option name="totallyTimeSpent" value="3629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
@@ -187,7 +204,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="models" />
     <MESSAGE value="developing" />
-    <option name="LAST_COMMIT_MESSAGE" value="developing" />
+    <MESSAGE value="developing fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="developing fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -233,10 +251,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PayPalRestApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/Item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="868">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -251,8 +277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AuthorizeOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="378">
+          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
           <folding />
         </state>
       </provider>

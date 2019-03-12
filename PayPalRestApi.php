@@ -18,6 +18,7 @@ use PayPal\Api\Transaction;
 use PayPal\Api\PaymentExecution;
 use PayPal\Exception\PayPalConnectionException;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
+use vanyok\paypalyii\models\Order;
 use vanyok\paypalyii\models\PurchaseUnit;
 use yii\helpers\Url;
 use Yii;
@@ -31,6 +32,8 @@ class PayPalRestApi
     public $debug;
     public $intent = 'CAPTURE';
     public $brand_name;
+    public $store_orders = false;
+    public $mode;
 
     public function __construct()
     {
@@ -73,7 +76,13 @@ class PayPalRestApi
             // To print the whole response body, uncomment the following line
             // echo json_encode($response->result, JSON_PRETTY_PRINT);
         }
-
+        if($this->store_orders){
+            $order = new Order();
+            $order->order_id = $response->result->id;
+            $order->user_id = Yii::$app->user->isGuest ? null : Yii::$app->user->getId();
+            $order->status = $response->result->status;
+            $order->save();
+        }
         foreach($response->result->links as $link)
         {
             \Yii::info("\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n");
@@ -87,7 +96,7 @@ class PayPalRestApi
     private function buildRequestBody(){
         $purchaseUnit = new PurchaseUnit();
         $purchaseUnit->items = $this->items;
-        $purchaseUnit->referenceId = 'rfrnc123456';
+       // $purchaseUnit->referenceId = 'rfrnc123456';
         return array(
             'intent' => $this->intent,
             'application_context' =>
@@ -100,5 +109,9 @@ class PayPalRestApi
                     0 => $purchaseUnit->getForRequest()
                 )
         );
+    }
+
+    public function getOrder($order_id){
+        return GetOrder::getOrder($order_id);
     }
 }
