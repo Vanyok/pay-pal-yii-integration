@@ -1,0 +1,25 @@
+{
+    "name": "vanyok/pay-pal-yii-integration",
+    "description": "Yii2 PayPal Api Extension use to integrate PayPal payments in your project using PaylPal php SDK v2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","PayPal","api","PayPal Php api","paypal api","payment","simple online payment","PayPal developer","PayPal Rest Api"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Ivan K",
+            "email": "vanyok@ua.fm"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "paypal/paypal-checkout-sdk":"1.0.0"
+        
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "vanyok\\paypalrestapi\\": ""
+        }
+    }
+}
+
