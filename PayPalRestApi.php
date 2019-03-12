@@ -87,7 +87,7 @@ class PayPalRestApi
     private function buildRequestBody(){
         $purchaseUnit = new PurchaseUnit();
         $purchaseUnit->items = $this->items;
-
+        $purchaseUnit->referenceId = 'rfrnc123456';
         return array(
             'intent' => $this->intent,
             'application_context' =>
